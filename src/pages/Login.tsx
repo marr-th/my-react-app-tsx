@@ -38,8 +38,15 @@ const Login: React.FC<{ disabled?: boolean }> = ({ disabled }) => {
       <form onSubmit={handlerSubmit}>
         {loginFieldsNames.map(field => (
           <div key={field.name}>
-            <label htmlFor={field.name}>{field.name}</label>
-            <input required disabled={disabled} type="text" name={field.name} id={field.name} {...field.opts} value={user?.[field.name] || null} />
+            <label htmlFor={field.name}>{field.name // TODO assign real value for label and apply i18n
+            }</label>
+            <input required
+              disabled={disabled}
+              className='input'
+              type="text"
+              name={field.name}
+              id={field.name}
+              {...field.opts} />
           </div>))}
         <button type="submit">Login</button>
         <NavLink to={paths.register} >Go to Register</NavLink>
