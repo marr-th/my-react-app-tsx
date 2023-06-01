@@ -1,5 +1,4 @@
-import React, { FC, FormEvent, useCallback } from 'react'
-import { SyntheticEvent } from 'react'
+import React, { useCallback } from 'react'
 import { User, fieldsNames } from '../interfaces/user'
 
 

@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import UserAccount from './pages/UserAccount';
 import reportWebVitals from './reportWebVitals';
 import store from './store'
 import { Provider } from 'react-redux'
