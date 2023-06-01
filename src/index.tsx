@@ -6,35 +6,41 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import UserAccount from './pages/UserAccount';
 import reportWebVitals from './reportWebVitals';
+import store from './store'
+import { Provider } from 'react-redux'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import { paths } from './constants/paths';
+import Header from './components/Header';
 
 
 const router = createBrowserRouter([
   {
     path: paths.home,
-    element: <App/>,
+    element: <App />,
   },
   {
     path: paths.register,
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: paths.login,
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: paths.userAccount,
-    element: <UserAccount/>,
+    Component: ()=><Register disabled />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider fallbackElement={<App/>} router={router} />
+    <Provider store={store}>
+      <Header/>
+      <RouterProvider fallbackElement={<App />} router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
