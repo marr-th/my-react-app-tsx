@@ -2,8 +2,8 @@
 // eliminar si levantamos la api al mismo tienpo
 const PROTOCOL = 'http'
 const HOST = 'localhost'
-const PORT = '3000'
-const useProxy = true
+const PORT = '3001'
+const useProxy = false
 // 
 const urlBase = `${!useProxy ?
     `${PROTOCOL}://${HOST}${PORT ? `:${PORT}` : ''}` :

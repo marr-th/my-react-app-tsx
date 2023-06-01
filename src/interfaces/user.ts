@@ -7,10 +7,14 @@ enum fieldsNameEnum {
 }
 
 const fieldsNames = [
-    { name: fieldsNameEnum.firstName, opts: {} },
-    { name: fieldsNameEnum.lastName, opts: {} },
-    { name: fieldsNameEnum.email, opts: {} },
-    { name: fieldsNameEnum.username, opts: {} },
+    { name: fieldsNameEnum.firstName, opts: {
+          value: 'Aa1@aaaa',} },
+    { name: fieldsNameEnum.lastName, opts: {
+          value: 'Aa1@aaaa',} },
+    { name: fieldsNameEnum.email, opts: {
+          value: 'Aa1@aaaa',} },
+    { name: fieldsNameEnum.username, opts: {
+          value: 'Aa1@aaaa',} },
     {
         name: fieldsNameEnum.password,
         opts: {
@@ -21,6 +25,7 @@ const fieldsNames = [
           (?=.*[@$!%*?&]) one special character
           [A-Za-z\d@$!%*?&]{8,} length: 8
            */
+          value: 'Aa1@aaaa',
             pattern: '(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}',
             type: 'password'
         }

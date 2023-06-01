@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react'
 import { User, fieldsNames } from '../interfaces/user'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '../store/features/user'
 
 
  const Register: React.FC<{disabled?: boolean}> = ({disabled}) => {
+  const dispatch = useDispatch()
   const handlerSubmit = useCallback((e: any
     ) => {
     e.preventDefault()
@@ -16,8 +19,8 @@ import { User, fieldsNames } from '../interfaces/user'
       username: '',
       password: '',
     })
-    return valuesForm;
-  }, [])
+    dispatch(registerUser(valuesForm))
+  }, [dispatch])
 
   return (
     <div>
