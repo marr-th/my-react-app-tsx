@@ -5,7 +5,7 @@ import { clean, registerUser } from '../store/features/user'
 import { User, fieldsNames } from '../interfaces/user'
 import { paths } from '../constants/paths';
 
-
+// disabled: if true it means that the application is on the user account page.
 const Register: React.FC<{ disabled?: boolean }> = ({ disabled }) => {
 
   const user = useSelector((state: any) => state.user) // TODO implement memoize of reselect if it is needed
@@ -58,6 +58,7 @@ const Register: React.FC<{ disabled?: boolean }> = ({ disabled }) => {
               name={field.name}
               id={field.name}
               {...field.opts}
+              defaultValue={disabled ? user?.[field.name] : undefined}
             />
           </div>))}
         {!disabled ? <>
