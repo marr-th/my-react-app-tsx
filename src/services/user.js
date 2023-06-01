@@ -1,12 +1,19 @@
-import axios from "axios"
-import { paths } from "../constants/paths"
+import axios from "./index"
+// import axionsInterceptor from "";
 import { AUTH_API } from "../constants/configAuthApi"
 
-export const postUser = (data) => {
-    axios.post(AUTH_API.REGISTER, data).then(res => res)
+const getData = res =>res.data
 
-}
-export const loginUser = (data) => {
-    axios.post(AUTH_API.LOGIN, data).then(res => res)
+export const postUser = (data) =>
+    axios({
+        method: 'post',
+        url: AUTH_API.REGISTER,
+        data,
+    }).then(getData);
 
-}
+export const loginUser = (data) =>
+    axios({
+        method: 'post',
+        url: AUTH_API.LOGIN,
+        data,
+    }).then(getData);

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../store/features/counter'
 
 export default function Header() {
-    const count = useSelector((state: any) => state.loginCounter.value)
+    const count = useSelector((state: any) => state.loginCounter.value)// TODO implement memoize of reselect if it is needed
     const dispatch = useDispatch()
 
     return (
@@ -12,14 +12,14 @@ export default function Header() {
                 aria-label="Increment value"
                 onClick={() => dispatch(increment())}
             >
-                Increment
+                Test Increment
             </button>
-            <span>{count}</span>
+            <span>numbers of user logged without reload to test saga: {count}</span>
             <button
                 aria-label="Decrement value"
                 onClick={() => dispatch(decrement())}
             >
-                Decrement
+                Test Decrement
             </button>
         </div>
     )

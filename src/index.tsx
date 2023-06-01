@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import reportWebVitals from './reportWebVitals';
@@ -13,12 +12,13 @@ import {
 } from "react-router-dom";
 import { paths } from './constants/paths';
 import Header from './components/Header';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 
 const router = createBrowserRouter([
   {
     path: paths.home,
-    element: <App />,
+    element: <Login />,
   },
   {
     path: paths.register,
@@ -30,15 +30,17 @@ const router = createBrowserRouter([
   },
   {
     path: paths.userAccount,
-    Component: ()=><Register disabled />,
+    Component: () => <Register disabled />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Header/>
-      <RouterProvider fallbackElement={<App />} router={router} />
+      <ErrorBoundary>
+        <Header />
+        <RouterProvider router={router} />
+      </ErrorBoundary>
     </Provider>
   </React.StrictMode>
 );
